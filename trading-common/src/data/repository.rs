@@ -39,7 +39,18 @@ pub struct Repository {
 impl Repository {
     pub async fn new(url: &str) -> DataResult<Self> {
         let pool = SqlitePool::connect(url).await.map_err(|e| DataError::Database(e))?;
+        
+        // Enable WAL mode for high-throughput parallel writes
+        sqlx::query("PRAGMA journal_mode=WAL; PRAGMA synchronous=NORMAL;")
+            .execute(&pool)
+            .await
+            .map_err(|e| DataError::Database(e))?;
+
         Ok(Self { pool })
+    }
+
+    pub fn from_pool(pool: SqlitePool) -> Self {
+        Self { pool }
     }
 
     pub async fn ensure_market_states_table(&self) -> DataResult<()> {
@@ -52,6 +63,7 @@ impl Repository {
                 pressure REAL NOT NULL,
                 volume_spread REAL NOT NULL,
                 entropy_level REAL,
+                regime_label TEXT,
                 timestamp INTEGER NOT NULL
             )
             "#
@@ -71,8 +83,8 @@ impl Repository {
         sqlx::query(
             r#"
             INSERT INTO market_states 
-            (symbol, temperature, pressure, volume_spread, entropy_level, timestamp)
-            VALUES (?1, ?2, ?3, ?4, ?5, ?6)
+            (symbol, temperature, pressure, volume_spread, entropy_level, regime_label, timestamp)
+            VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)
             "#
         )
         .bind(&state.symbol)
@@ -80,6 +92,7 @@ impl Repository {
         .bind(press)
         .bind(vol)
         .bind(entropy)
+        .bind(&state.regime)
         .bind(state.timestamp)
         .execute(&self.pool)
         .await

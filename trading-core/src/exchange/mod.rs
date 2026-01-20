@@ -9,6 +9,7 @@ pub mod traits;
 pub mod errors;
 pub mod utils;
 pub mod filters;
+pub mod envelope_detection;
 
 // Re-exports für die "Movement Based" Engine
 pub use connector::HyperliquidConnector as ExchangeConnector;

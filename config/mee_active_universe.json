@@ -1,0 +1,1514 @@
+{
+    "YGGUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "YGGUSDC",
+                    "base_asset":  "YGG",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ARKUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ARKUSDC",
+                    "base_asset":  "ARK",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "USUALUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "USUALUSDC",
+                      "base_asset":  "USUAL",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "NXPCUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "NXPCUSDC",
+                     "base_asset":  "NXPC",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "ZROUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ZROUSDC",
+                    "base_asset":  "ZRO",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "APEUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "APEUSDC",
+                    "base_asset":  "APE",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "LITUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "LITUSDC",
+                    "base_asset":  "LIT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "DOODUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "DOODUSDC",
+                     "base_asset":  "DOOD",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "ZKUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "ZKUSDC",
+                   "base_asset":  "ZK",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "VIRTUALUSDC":  {
+                        "startup_steps":  100,
+                        "exchange_tick_size":  0.0001,
+                        "symbol":  "VIRTUALUSDC",
+                        "base_asset":  "VIRTUAL",
+                        "quote_asset":  "USDC",
+                        "max_spread_ticks":  50
+                    },
+    "IOTAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "IOTAUSDC",
+                     "base_asset":  "IOTA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "TSTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "TSTUSDC",
+                    "base_asset":  "TST",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "CRVUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "CRVUSDC",
+                    "base_asset":  "CRV",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "UMAUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "UMAUSDC",
+                    "base_asset":  "UMA",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "PNUTUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "PNUTUSDC",
+                     "base_asset":  "PNUT",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SYRUPUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "SYRUPUSDC",
+                      "base_asset":  "SYRUP",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "NILUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "NILUSDC",
+                    "base_asset":  "NIL",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "PAXGUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "PAXGUSDC",
+                     "base_asset":  "PAXG",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "ENAUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ENAUSDC",
+                    "base_asset":  "ENA",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "GRIFFAINUSDC":  {
+                         "startup_steps":  100,
+                         "exchange_tick_size":  0.0001,
+                         "symbol":  "GRIFFAINUSDC",
+                         "base_asset":  "GRIFFAIN",
+                         "quote_asset":  "USDC",
+                         "max_spread_ticks":  50
+                     },
+    "CAKEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "CAKEUSDC",
+                     "base_asset":  "CAKE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "PENDLEUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "PENDLEUSDC",
+                       "base_asset":  "PENDLE",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "GOATUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "GOATUSDC",
+                     "base_asset":  "GOAT",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "IMXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "IMXUSDC",
+                    "base_asset":  "IMX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ETCUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ETCUSDC",
+                    "base_asset":  "ETC",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "AAVEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "AAVEUSDC",
+                     "base_asset":  "AAVE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SEIUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SEIUSDC",
+                    "base_asset":  "SEI",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "DOGEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "DOGEUSDC",
+                     "base_asset":  "DOGE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "LDOUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "LDOUSDC",
+                    "base_asset":  "LDO",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "WLFIUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "WLFIUSDC",
+                     "base_asset":  "WLFI",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "IOUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "IOUSDC",
+                   "base_asset":  "IO",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "TNSRUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "TNSRUSDC",
+                     "base_asset":  "TNSR",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "RSRUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "RSRUSDC",
+                    "base_asset":  "RSR",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "TURBOUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "TURBOUSDC",
+                      "base_asset":  "TURBO",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "ACEUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ACEUSDC",
+                    "base_asset":  "ACE",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ANIMEUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "ANIMEUSDC",
+                      "base_asset":  "ANIME",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "MANTAUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "MANTAUSDC",
+                      "base_asset":  "MANTA",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "GRASSUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "GRASSUSDC",
+                      "base_asset":  "GRASS",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "WUSDC":  {
+                  "startup_steps":  100,
+                  "exchange_tick_size":  0.0001,
+                  "symbol":  "WUSDC",
+                  "base_asset":  "W",
+                  "quote_asset":  "USDC",
+                  "max_spread_ticks":  50
+              },
+    "TRUMPUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "TRUMPUSDC",
+                      "base_asset":  "TRUMP",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "LINKUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "LINKUSDC",
+                     "base_asset":  "LINK",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SOPHUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "SOPHUSDC",
+                     "base_asset":  "SOPH",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "PROVEUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "PROVEUSDC",
+                      "base_asset":  "PROVE",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "SOLUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SOLUSDC",
+                    "base_asset":  "SOL",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "HEMIUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "HEMIUSDC",
+                     "base_asset":  "HEMI",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "PENGUUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "PENGUUSDC",
+                      "base_asset":  "PENGU",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "ENSUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ENSUSDC",
+                    "base_asset":  "ENS",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "BANANAUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "BANANAUSDC",
+                       "base_asset":  "BANANA",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "ZEREBROUSDC":  {
+                        "startup_steps":  100,
+                        "exchange_tick_size":  0.0001,
+                        "symbol":  "ZEREBROUSDC",
+                        "base_asset":  "ZEREBRO",
+                        "quote_asset":  "USDC",
+                        "max_spread_ticks":  50
+                    },
+    "WIFUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "WIFUSDC",
+                    "base_asset":  "WIF",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "JUPUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "JUPUSDC",
+                    "base_asset":  "JUP",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "LINEAUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "LINEAUSDC",
+                      "base_asset":  "LINEA",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "MORPHOUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "MORPHOUSDC",
+                       "base_asset":  "MORPHO",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "NOTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "NOTUSDC",
+                    "base_asset":  "NOT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ATOMUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "ATOMUSDC",
+                     "base_asset":  "ATOM",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "STRKUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "STRKUSDC",
+                     "base_asset":  "STRK",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "RESOLVUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "RESOLVUSDC",
+                       "base_asset":  "RESOLV",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "MAVUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "MAVUSDC",
+                    "base_asset":  "MAV",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "CHILLGUYUSDC":  {
+                         "startup_steps":  100,
+                         "exchange_tick_size":  0.0001,
+                         "symbol":  "CHILLGUYUSDC",
+                         "base_asset":  "CHILLGUY",
+                         "quote_asset":  "USDC",
+                         "max_spread_ticks":  50
+                     },
+    "AVAXUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "AVAXUSDC",
+                     "base_asset":  "AVAX",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "kPEPEUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "kPEPEUSDC",
+                      "base_asset":  "kPEPE",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "FILUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "FILUSDC",
+                    "base_asset":  "FIL",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "GALAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "GALAUSDC",
+                     "base_asset":  "GALA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SUSDC":  {
+                  "startup_steps":  100,
+                  "exchange_tick_size":  0.0001,
+                  "symbol":  "SUSDC",
+                  "base_asset":  "S",
+                  "quote_asset":  "USDC",
+                  "max_spread_ticks":  50
+              },
+    "kNEIROUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "kNEIROUSDC",
+                       "base_asset":  "kNEIRO",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "GASUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "GASUSDC",
+                    "base_asset":  "GAS",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "SKYUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SKYUSDC",
+                    "base_asset":  "SKY",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "FOGOUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "FOGOUSDC",
+                     "base_asset":  "FOGO",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SAGAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "SAGAUSDC",
+                     "base_asset":  "SAGA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "HYPERUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "HYPERUSDC",
+                      "base_asset":  "HYPER",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "FETUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "FETUSDC",
+                    "base_asset":  "FET",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "IPUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "IPUSDC",
+                   "base_asset":  "IP",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "ZETAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "ZETAUSDC",
+                     "base_asset":  "ZETA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "kBONKUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "kBONKUSDC",
+                      "base_asset":  "kBONK",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "PURRUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "PURRUSDC",
+                     "base_asset":  "PURR",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "JTOUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "JTOUSDC",
+                    "base_asset":  "JTO",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "POLYXUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "POLYXUSDC",
+                      "base_asset":  "POLYX",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "BOMEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "BOMEUSDC",
+                     "base_asset":  "BOME",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "ZECUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ZECUSDC",
+                    "base_asset":  "ZEC",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "VVVUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "VVVUSDC",
+                    "base_asset":  "VVV",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "MERLUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "MERLUSDC",
+                     "base_asset":  "MERL",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "RUNEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "RUNEUSDC",
+                     "base_asset":  "RUNE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "MELANIAUSDC":  {
+                        "startup_steps":  100,
+                        "exchange_tick_size":  0.0001,
+                        "symbol":  "MELANIAUSDC",
+                        "base_asset":  "MELANIA",
+                        "quote_asset":  "USDC",
+                        "max_spread_ticks":  50
+                    },
+    "HBARUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "HBARUSDC",
+                     "base_asset":  "HBAR",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "AXSUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "AXSUSDC",
+                    "base_asset":  "AXS",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ETHUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ETHUSDC",
+                    "base_asset":  "ETH",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "BSVUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "BSVUSDC",
+                    "base_asset":  "BSV",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ZORAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "ZORAUSDC",
+                     "base_asset":  "ZORA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "BRETTUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "BRETTUSDC",
+                      "base_asset":  "BRETT",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "ARUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "ARUSDC",
+                   "base_asset":  "AR",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "OPUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "OPUSDC",
+                   "base_asset":  "OP",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "TAOUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "TAOUSDC",
+                    "base_asset":  "TAO",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "MEMEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "MEMEUSDC",
+                     "base_asset":  "MEME",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "REZUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "REZUSDC",
+                    "base_asset":  "REZ",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "BNBUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "BNBUSDC",
+                    "base_asset":  "BNB",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "0GUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "0GUSDC",
+                   "base_asset":  "0G",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "KASUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "KASUSDC",
+                    "base_asset":  "KAS",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "kFLOKIUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "kFLOKIUSDC",
+                       "base_asset":  "kFLOKI",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "MINAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "MINAUSDC",
+                     "base_asset":  "MINA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "METUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "METUSDC",
+                    "base_asset":  "MET",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "MOVEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "MOVEUSDC",
+                     "base_asset":  "MOVE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "DOTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "DOTUSDC",
+                    "base_asset":  "DOT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "BIGTIMEUSDC":  {
+                        "startup_steps":  100,
+                        "exchange_tick_size":  0.0001,
+                        "symbol":  "BIGTIMEUSDC",
+                        "base_asset":  "BIGTIME",
+                        "quote_asset":  "USDC",
+                        "max_spread_ticks":  50
+                    },
+    "POPCATUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "POPCATUSDC",
+                       "base_asset":  "POPCAT",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "2ZUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "2ZUSDC",
+                   "base_asset":  "2Z",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "NEOUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "NEOUSDC",
+                    "base_asset":  "NEO",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "FARTCOINUSDC":  {
+                         "startup_steps":  100,
+                         "exchange_tick_size":  0.0001,
+                         "symbol":  "FARTCOINUSDC",
+                         "base_asset":  "FARTCOIN",
+                         "quote_asset":  "USDC",
+                         "max_spread_ticks":  50
+                     },
+    "DYDXUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "DYDXUSDC",
+                     "base_asset":  "DYDX",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "AEROUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "AEROUSDC",
+                     "base_asset":  "AERO",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "FTTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "FTTUSDC",
+                    "base_asset":  "FTT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "CCUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "CCUSDC",
+                   "base_asset":  "CC",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "USTCUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "USTCUSDC",
+                     "base_asset":  "USTC",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "HYPEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "HYPEUSDC",
+                     "base_asset":  "HYPE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "WCTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "WCTUSDC",
+                    "base_asset":  "WCT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "LAYERUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "LAYERUSDC",
+                      "base_asset":  "LAYER",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "ADAUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ADAUSDC",
+                    "base_asset":  "ADA",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "STXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "STXUSDC",
+                    "base_asset":  "STX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "RENDERUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "RENDERUSDC",
+                       "base_asset":  "RENDER",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "ONDOUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "ONDOUSDC",
+                     "base_asset":  "ONDO",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "BIOUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "BIOUSDC",
+                    "base_asset":  "BIO",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "XRPUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "XRPUSDC",
+                    "base_asset":  "XRP",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "NEARUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "NEARUSDC",
+                     "base_asset":  "NEAR",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "POLUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "POLUSDC",
+                    "base_asset":  "POL",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "STABLEUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "STABLEUSDC",
+                       "base_asset":  "STABLE",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "MEGAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "MEGAUSDC",
+                     "base_asset":  "MEGA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SUIUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SUIUSDC",
+                    "base_asset":  "SUI",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ASTERUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "ASTERUSDC",
+                      "base_asset":  "ASTER",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "GMTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "GMTUSDC",
+                    "base_asset":  "GMT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ICPUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ICPUSDC",
+                    "base_asset":  "ICP",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "PEOPLEUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "PEOPLEUSDC",
+                       "base_asset":  "PEOPLE",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "SNXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SNXUSDC",
+                    "base_asset":  "SNX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ALTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ALTUSDC",
+                    "base_asset":  "ALT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "AVNTUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "AVNTUSDC",
+                     "base_asset":  "AVNT",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "ARBUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ARBUSDC",
+                    "base_asset":  "ARB",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "MONUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "MONUSDC",
+                    "base_asset":  "MON",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "INJUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "INJUSDC",
+                    "base_asset":  "INJ",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "TIAUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "TIAUSDC",
+                    "base_asset":  "TIA",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "SANDUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "SANDUSDC",
+                     "base_asset":  "SAND",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "MAVIAUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "MAVIAUSDC",
+                      "base_asset":  "MAVIA",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "BERAUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "BERAUSDC",
+                     "base_asset":  "BERA",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "kLUNCUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "kLUNCUSDC",
+                      "base_asset":  "kLUNC",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "TRXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "TRXUSDC",
+                    "base_asset":  "TRX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "CFXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "CFXUSDC",
+                    "base_asset":  "CFX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "PROMPTUSDC":  {
+                       "startup_steps":  100,
+                       "exchange_tick_size":  0.0001,
+                       "symbol":  "PROMPTUSDC",
+                       "base_asset":  "PROMPT",
+                       "quote_asset":  "USDC",
+                       "max_spread_ticks":  50
+                   },
+    "XAIUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "XAIUSDC",
+                    "base_asset":  "XAI",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "COMPUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "COMPUSDC",
+                     "base_asset":  "COMP",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "PUMPUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "PUMPUSDC",
+                     "base_asset":  "PUMP",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "APEXUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "APEXUSDC",
+                     "base_asset":  "APEX",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "DYMUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "DYMUSDC",
+                    "base_asset":  "DYM",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "SUSHIUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "SUSHIUSDC",
+                      "base_asset":  "SUSHI",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "XMRUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "XMRUSDC",
+                    "base_asset":  "XMR",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "AIXBTUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "AIXBTUSDC",
+                      "base_asset":  "AIXBT",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "UNIUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "UNIUSDC",
+                    "base_asset":  "UNI",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "KAITOUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "KAITOUSDC",
+                      "base_asset":  "KAITO",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "BLURUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "BLURUSDC",
+                     "base_asset":  "BLUR",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "DASHUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "DASHUSDC",
+                     "base_asset":  "DASH",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SUPERUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "SUPERUSDC",
+                      "base_asset":  "SUPER",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "MNTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "MNTUSDC",
+                    "base_asset":  "MNT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "EIGENUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "EIGENUSDC",
+                      "base_asset":  "EIGEN",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "TRBUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "TRBUSDC",
+                    "base_asset":  "TRB",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ORDIUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "ORDIUSDC",
+                     "base_asset":  "ORDI",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "PYTHUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "PYTHUSDC",
+                     "base_asset":  "PYTH",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "MOODENGUSDC":  {
+                        "startup_steps":  100,
+                        "exchange_tick_size":  0.0001,
+                        "symbol":  "MOODENGUSDC",
+                        "base_asset":  "MOODENG",
+                        "quote_asset":  "USDC",
+                        "max_spread_ticks":  50
+                    },
+    "OMUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "OMUSDC",
+                   "base_asset":  "OM",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "BLASTUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "BLASTUSDC",
+                      "base_asset":  "BLAST",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "CELOUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "CELOUSDC",
+                     "base_asset":  "CELO",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "SPXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SPXUSDC",
+                    "base_asset":  "SPX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "APTUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "APTUSDC",
+                    "base_asset":  "APT",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "XPLUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "XPLUSDC",
+                    "base_asset":  "XPL",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "kSHIBUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "kSHIBUSDC",
+                      "base_asset":  "kSHIB",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "LTCUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "LTCUSDC",
+                    "base_asset":  "LTC",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "MEWUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "MEWUSDC",
+                    "base_asset":  "MEW",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "STBLUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "STBLUSDC",
+                     "base_asset":  "STBL",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "XLMUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "XLMUSDC",
+                    "base_asset":  "XLM",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ALGOUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "ALGOUSDC",
+                     "base_asset":  "ALGO",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "BCHUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "BCHUSDC",
+                    "base_asset":  "BCH",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "GMXUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "GMXUSDC",
+                    "base_asset":  "GMX",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "VINEUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "VINEUSDC",
+                     "base_asset":  "VINE",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "HMSTRUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "HMSTRUSDC",
+                      "base_asset":  "HMSTR",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "MEUSDC":  {
+                   "startup_steps":  100,
+                   "exchange_tick_size":  0.0001,
+                   "symbol":  "MEUSDC",
+                   "base_asset":  "ME",
+                   "quote_asset":  "USDC",
+                   "max_spread_ticks":  50
+               },
+    "YZYUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "YZYUSDC",
+                    "base_asset":  "YZY",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ETHFIUSDC":  {
+                      "startup_steps":  100,
+                      "exchange_tick_size":  0.0001,
+                      "symbol":  "ETHFIUSDC",
+                      "base_asset":  "ETHFI",
+                      "quote_asset":  "USDC",
+                      "max_spread_ticks":  50
+                  },
+    "TONUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "TONUSDC",
+                    "base_asset":  "TON",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "INITUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "INITUSDC",
+                     "base_asset":  "INIT",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "BABYUSDC":  {
+                     "startup_steps":  100,
+                     "exchange_tick_size":  0.0001,
+                     "symbol":  "BABYUSDC",
+                     "base_asset":  "BABY",
+                     "quote_asset":  "USDC",
+                     "max_spread_ticks":  50
+                 },
+    "WLDUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "WLDUSDC",
+                    "base_asset":  "WLD",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "BTCUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "BTCUSDC",
+                    "base_asset":  "BTC",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "SCRUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "SCRUSDC",
+                    "base_asset":  "SCR",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                },
+    "ZENUSDC":  {
+                    "startup_steps":  100,
+                    "exchange_tick_size":  0.0001,
+                    "symbol":  "ZENUSDC",
+                    "base_asset":  "ZEN",
+                    "quote_asset":  "USDC",
+                    "max_spread_ticks":  50
+                }
+}

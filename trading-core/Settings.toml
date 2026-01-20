@@ -1,0 +1,9 @@
+# E:\MBCT\trading-core\Settings.toml
+[database]
+uri = "sqlite:E:/MBCT/data/researcher.db"
+enabled = true
+
+[exchange]
+use_testnet = false
+
+symbols = []

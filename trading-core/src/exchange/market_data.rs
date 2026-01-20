@@ -73,6 +73,7 @@ impl HyperliquidMarketData {
             volume_spread,
             entropy_level,
             timestamp: chrono::Utc::now().timestamp_millis(),
+            regime: None,
         }
     }
 }

@@ -427,6 +427,7 @@ pub struct MarketState {
     pub entropy_level: Option<Decimal>,
     /// Timestamp (Unix millis)
     pub timestamp: i64, // Unix timestamp in milliseconds
+    pub regime: Option<String>,
 }
 
 impl MarketState {
@@ -467,6 +468,11 @@ impl MarketState {
             .filter(|&p| p > 0.0)
             .map(|p| -p * p.ln())
             .sum()
+    }
+
+    pub fn is_fast_breathing(&self, duration: u64) -> bool {
+        // Wenn ein Roundtrip < 30 Sekunden dauert, ist die Resonanz ideal
+        duration < 30000 
     }
 }
 

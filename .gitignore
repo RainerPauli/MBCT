@@ -1,16 +1,12 @@
-# Credentials
-.env
-*.pem
-*.key
 
-# Databases
-*.db
-*.db-shm
-*.db-wal
-
-# Build
-/target/
 
 # IDE
 .vscode/
 .idea/
+
+/target
+/data/*.db
+/data/*.db-wal
+/data/*.db-shm
+/data/*.csv
+.env

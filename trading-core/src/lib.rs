@@ -1,5 +1,5 @@
-// trading-core library: CLI-specific modules
-// Shared types are in trading-common crate
+// E:\MBCT\trading-core\src\lib.rs
+// THE ALLIANCE - Core Library Definitions
 
 pub mod config;
 pub mod exchange;

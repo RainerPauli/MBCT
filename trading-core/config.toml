@@ -1,0 +1,9 @@
+[database]
+uri = "sqlite:E:/MBCT/data/researcher.db"
+enabled = true
+
+[exchange]
+use_testnet = false
+
+# Symbole werden laut deiner main.rs ohnehin aus der hl_assets.txt überschrieben
+symbols = []
