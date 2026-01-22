@@ -5,6 +5,7 @@ pub mod config;
 pub mod exchange;
 pub mod live_trading;
 pub mod service;
+pub mod universe; // NEU: Aktivierung der kinetischen Selektion
 
 // Re-export trading-common for convenience
 pub use trading_common::{backtest, data};
