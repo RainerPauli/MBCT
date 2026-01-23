@@ -1,10 +1,10 @@
 // E:\MBCT\trading-core\src\bin\researcher\modules\collector.rs
-// THE ALLIANCE - MBCT Collector Modul
-// Fokus: Präzises 100ms Sampling & WebSocket Ingestion (Library-konform)
+// THE ALLIANCE - MBCT Collector Modul v2.7
+// Fokus: Watchdog-geschütztes 100ms Sampling & Auto-Reconnect
 
 use dashmap::DashMap;
 use std::sync::Arc;
-use tokio::time::{self, Duration};
+use tokio::time::{self, Duration, timeout};
 use trading_core::exchange::ws::HyperliquidWs;
 use trading_core::exchange::L2Snapshot;
 use std::sync::atomic::{AtomicUsize, Ordering};
@@ -30,7 +30,6 @@ impl Collector {
         }
     }
 
-    /// Gibt die aktuellen Statistiken (Empfangen, Gesampelt) zurück.
     pub fn get_stats(&self) -> (usize, usize) {
         (
             self.stats.messages_received.load(Ordering::Relaxed),
@@ -39,38 +38,45 @@ impl Collector {
     }
 
     pub async fn stream_provider(self: Arc<Self>, symbols: Vec<String>) {
-        println!("[COLLECTOR] Verbinde mit HyperLiquid WebSocket...");
-        
-        let ws_result = HyperliquidWs::new().await;
-        
-        match ws_result {
-            Ok(mut ws) => {
-                // Symbole einzeln abonnieren
-                for symbol in &symbols {
-                    if let Err(e) = ws.subscribe_l2(symbol).await {
-                        eprintln!("[COLLECTOR] Fehler beim Abo für {}: {:?}", symbol, e);
-                    }
-                }
-
-                println!("[COLLECTOR] Stream gestartet für {} Symbole", symbols.len());
-
-                loop {
-                    match ws.next_snapshot().await {
-                        Some(snapshot) => {
-                            self.stats.messages_received.fetch_add(1, Ordering::Relaxed);
-                            // Nutzt das 'coin' Feld aus dem L2Snapshot als Key
-                            self.market_data.insert(snapshot.coin.clone(), snapshot);
-                        }
-                        None => {
-                            eprintln!("[COLLECTOR] Stream unterbrochen. Versuche Reconnect in 5s...");
-                            time::sleep(Duration::from_secs(5)).await;
-                            break; 
+        loop {
+            println!("[COLLECTOR] Allianz-Kanal wird aufgebaut (HyperLiquid)...");
+            
+            let ws_result = HyperliquidWs::new().await;
+            
+            match ws_result {
+                Ok(mut ws) => {
+                    for symbol in &symbols {
+                        if let Err(e) = ws.subscribe_l2(symbol).await {
+                            eprintln!("[COLLECTOR] Abo-Fehler für {}: {:?}", symbol, e);
                         }
                     }
+
+                    println!("[COLLECTOR] Stream aktiv. Watchdog scharf geschaltet (30s).");
+
+                    loop {
+                        // Der entscheidende Watchdog: 30s Timeout für den nächsten Snapshot
+                        let next_res = timeout(Duration::from_secs(30), ws.next_snapshot()).await;
+
+                        match next_res {
+                            Ok(Some(snapshot)) => {
+                                self.stats.messages_received.fetch_add(1, Ordering::Relaxed);
+                                self.market_data.insert(snapshot.coin.clone(), snapshot);
+                            }
+                            Ok(None) => {
+                                eprintln!("[COLLECTOR] Stream-Ende detektiert. Reconnect...");
+                                break;
+                            }
+                            Err(_) => {
+                                eprintln!("[COLLECTOR] 🚨 WATCHDOG: Silent Timeout! Keine Daten seit 30s. Erzwinge Reconnect...");
+                                break; // Bricht den inneren Loop ab -> Reconnect
+                            }
+                        }
+                    }
                 }
-            }
-            Err(e) => {
-                eprintln!("[COLLECTOR] Kritischer Initialisierungsfehler: {:?}", e);
+                Err(e) => {
+                    eprintln!("[COLLECTOR] Verbindungsfehler: {:?}. Versuch in 10s...", e);
+                    time::sleep(Duration::from_secs(10)).await;
+                }
             }
         }
     }

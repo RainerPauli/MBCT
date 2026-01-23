@@ -23,6 +23,7 @@ impl Archive {
             .connect_with(opts)
             .await?;
 
+        // Tabelle mit ret_377s erweitert
         sqlx::query(
             "CREATE TABLE IF NOT EXISTS mbct_research_v2 (
                 timestamp INTEGER,
@@ -44,6 +45,7 @@ impl Archive {
                 ret_89s REAL,
                 ret_144s REAL,
                 ret_233s REAL,
+                ret_377s REAL,
                 z_entropy_21s REAL,
                 z_pressure_21s REAL,
                 z_nrg_21s REAL,
@@ -61,9 +63,9 @@ impl Archive {
             sqlx::query(
                 "INSERT INTO mbct_research_v2 (
                     timestamp, symbol, price, entropy, pressure, nrg, regime, symmetry, slope,
-                    ret_3s, ret_5s, ret_8s, ret_13s, ret_21s, ret_34s, ret_55s, ret_89s, ret_144s, ret_233s,
+                    ret_3s, ret_5s, ret_8s, ret_13s, ret_21s, ret_34s, ret_55s, ret_89s, ret_144s, ret_233s, ret_377s,
                     z_entropy_21s, z_pressure_21s, z_nrg_21s, z_entropy_34s, z_pressure_34s, z_nrg_34s
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             )
             .bind(record.timestamp as i64)
             .bind(&record.symbol)
@@ -84,6 +86,7 @@ impl Archive {
             .bind(record.ret_89s)
             .bind(record.ret_144s)
             .bind(record.ret_233s)
+            .bind(record.ret_377s)
             .bind(record.z_entropy_21s)
             .bind(record.z_pressure_21s)
             .bind(record.z_nrg_21s)
@@ -105,8 +108,9 @@ impl Archive {
             .open(&self.csv_path)
             .unwrap();
 
+        // CSV Header mit ret_377s
         if file.metadata().unwrap().len() == 0 {
-            writeln!(file, "timestamp,symbol,price,entropy,pressure,nrg,regime,symmetry,slope,ret_3s,ret_5s,ret_8s,ret_13s,ret_21s,ret_34s,ret_55s,ret_89s,ret_144s,ret_233s,z_entropy_21s,z_pressure_21s,z_nrg_21s,z_entropy_34s,z_pressure_34s,z_nrg_34s").unwrap();
+            writeln!(file, "timestamp,symbol,price,entropy,pressure,nrg,regime,symmetry,slope,ret_3s,ret_5s,ret_8s,ret_13s,ret_21s,ret_34s,ret_55s,ret_89s,ret_144s,ret_233s,ret_377s,z_entropy_21s,z_pressure_21s,z_nrg_21s,z_entropy_34s,z_pressure_34s,z_nrg_34s").unwrap();
         }
 
         let f_opt = |opt: Option<f64>| {
@@ -117,7 +121,7 @@ impl Archive {
         
         writeln!(
             file,
-            "{},{},{:.8},{:.4},{:.4},{:.4},{},{:.4},{:.8},{},{},{},{},{},{},{},{},{},{},{:.4},{:.4},{:.4},{:.4},{:.4},{:.4}",
+            "{},{},{:.8},{:.4},{:.4},{:.4},{},{:.4},{:.8},{},{},{},{},{},{},{},{},{},{},{},{:.4},{:.4},{:.4},{:.4},{:.4},{:.4}",
             record.timestamp,
             record.symbol,
             record.physics.price,
@@ -137,6 +141,7 @@ impl Archive {
             f_opt(record.ret_89s),
             f_opt(record.ret_144s),
             f_opt(record.ret_233s),
+            f_opt(record.ret_377s), // Neu eingereiht
             record.z_entropy_21s,
             record.z_pressure_21s,
             record.z_nrg_21s,

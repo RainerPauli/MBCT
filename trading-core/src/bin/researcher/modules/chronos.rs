@@ -21,6 +21,7 @@ pub struct MBCTFullRecord {
     pub ret_89s: Option<f64>,
     pub ret_144s: Option<f64>,
     pub ret_233s: Option<f64>,
+    pub ret_377s: Option<f64>, // Neu: Deep-Time Horizon
     pub z_entropy_21s: f64,
     pub z_pressure_21s: f64,
     pub z_nrg_21s: f64,
@@ -121,14 +122,13 @@ impl Chronos {
             regime: peak.regime,
             ret_3s: None, ret_5s: None, ret_8s: None, ret_13s: None, 
             ret_21s: None, ret_34s: None, ret_55s: None, ret_89s: None, 
-            ret_144s: None, ret_233s: None,
+            ret_144s: None, ret_233s: None, ret_377s: None,
             z_entropy_21s: 0.0, z_pressure_21s: 0.0, z_nrg_21s: 0.0,
             z_entropy_34s: 0.0, z_pressure_34s: 0.0, z_nrg_34s: 0.0,
             is_complete: false,
             created_at: Instant::now(),
         };
 
-        // Das Print-Statement wurde entfernt, um das UI-Cockpit in main.rs nicht zu stören.
         self.pending_records.entry(symbol.to_string()).or_insert_with(Vec::new).push(record);
     }
 
@@ -163,8 +163,9 @@ impl Chronos {
                 if r.ret_55s.is_none() && elapsed >= 55 { r.ret_55s = Some(calc_ret(p0, current_price)); }
                 if r.ret_89s.is_none() && elapsed >= 89 { r.ret_89s = Some(calc_ret(p0, current_price)); }
                 if r.ret_144s.is_none() && elapsed >= 144 { r.ret_144s = Some(calc_ret(p0, current_price)); }
-                if r.ret_233s.is_none() && elapsed >= 233 { 
-                    r.ret_233s = Some(calc_ret(p0, current_price));
+                if r.ret_233s.is_none() && elapsed >= 233 { r.ret_233s = Some(calc_ret(p0, current_price)); }
+                if r.ret_377s.is_none() && elapsed >= 377 { 
+                    r.ret_377s = Some(calc_ret(p0, current_price));
                     r.is_complete = true;
                 }
             }
