@@ -1,9 +1,9 @@
 // E:\MBCT\trading-core\src\universe.rs
 // MBCT - Kinetic Universe Selection
 
+use serde::Deserialize;
 use std::collections::{HashMap, HashSet};
 use std::fs;
-use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct CoinProfile {
@@ -21,8 +21,11 @@ impl KineticUniverse {
     pub fn get_active_symbols(json_path: &str) -> Vec<String> {
         // Die physikalische White-List der Movement-Carrier (aus deiner Analyse)
         let white_list: HashSet<&str> = [
-            "SOL", "GMX", "BIGTIME", "ZK", "KAITO", "TURBO", "MOODENG", "ZRO", "PURR", "PROVE"
-        ].iter().cloned().collect();
+            "SOL", "GMX", "BIGTIME", "ZK", "KAITO", "TURBO", "MOODENG", "ZRO", "PURR", "PROVE",
+        ]
+        .iter()
+        .cloned()
+        .collect();
 
         let mut active_symbols = Vec::new();
 

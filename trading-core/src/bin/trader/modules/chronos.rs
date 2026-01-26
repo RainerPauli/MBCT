@@ -1,6 +1,9 @@
-// E:\MBCT\trading-core\src\bin\researcher\modules\chronos.rs
-use crate::modules::physicist::PhysicsState;
-use crate::modules::regime::RegimeState;
+// E:\MBCT\trading-core\src\bin\trader\modules\chronos.rs
+// THE ALLIANCE - MBCT Chronos v2.0 (Trader Integration)
+// Fokus: Fibonacci Time-Horizons & Peak Detection
+
+use super::physicist::PhysicsState;
+use super::regime::RegimeState;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::time::Instant;
@@ -21,7 +24,7 @@ pub struct MBCTFullRecord {
     pub ret_89s: Option<f64>,
     pub ret_144s: Option<f64>,
     pub ret_233s: Option<f64>,
-    pub ret_377s: Option<f64>, // Neu: Deep-Time Horizon
+    pub ret_377s: Option<f64>,
     pub z_entropy_21s: f64,
     pub z_pressure_21s: f64,
     pub z_nrg_21s: f64,
@@ -30,6 +33,7 @@ pub struct MBCTFullRecord {
     pub z_nrg_34s: f64,
     pub is_complete: bool,
     #[serde(skip, default = "Instant::now")]
+    #[allow(dead_code)]
     pub created_at: Instant,
 }
 
@@ -52,6 +56,7 @@ impl Chronos {
         }
     }
 
+    /// Überwacht Symmetrie-Extreme (Erdbeben vs Rippel)
     pub fn observe_potential_hit(
         &mut self,
         symbol: &str,
@@ -152,6 +157,7 @@ impl Chronos {
             .push(record);
     }
 
+    #[allow(dead_code)]
     pub fn update_and_flush(
         &mut self,
         symbol: &str,
@@ -229,6 +235,7 @@ impl Chronos {
         completed
     }
 
+    #[allow(dead_code)]
     pub fn get_pending_count(&self) -> usize {
         self.pending_records
             .values()

@@ -1,9 +1,12 @@
+# E:\MBCT\trading-core\config.toml
 [database]
-uri = "sqlite:E:/MBCT/data/researcher.db"
+uri = "sqlite:E:/MBCT/data/researcher_v2.db"
 enabled = true
 
 [exchange]
-use_testnet = false
+# Der Trader nutzt dies als Default-Fallback, falls in der main.rs nichts anderes definiert ist
+use_testnet = true 
 
-# Symbole werden laut deiner main.rs ohnehin aus der hl_assets.txt überschrieben
-symbols = []
+[paths]
+csv_export = "E:/MBCT/data/researcher_v2.csv"
+log_dir = "E:/MBCT/logs"

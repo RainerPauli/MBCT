@@ -38,7 +38,10 @@ fn main() -> std::io::Result<()> {
     });
 
     println!("\n🛡️ --- THE ALLIANCE: UNIVERSE RANKING (KINETIC SHARPENER) ---");
-    println!("{:<10} | {:<10} | {:<10} | {:<12} | {:<10}", "SYMBOL", "CONFIDENCE", "TTS-SPEED", "EFFICIENCY", "STATUS");
+    println!(
+        "{:<10} | {:<10} | {:<10} | {:<12} | {:<10}",
+        "SYMBOL", "CONFIDENCE", "TTS-SPEED", "EFFICIENCY", "STATUS"
+    );
     println!("{:-<65}", "");
 
     for asset in assets.iter().take(40) {
@@ -62,6 +65,6 @@ fn main() -> std::io::Result<()> {
 
     println!("{:-<65}", "");
     println!("INFO: SNIPER = Schnelle Roundtrips | TANKER = Hohe Sicherheit | SLEEPER = Zu wenig Kinetik");
-    
+
     Ok(())
 }

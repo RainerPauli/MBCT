@@ -1,9 +1,16 @@
 # E:\MBCT\trading-core\Settings.toml
 [database]
-uri = "sqlite:E:/MBCT/data/researcher.db"
+uri = "sqlite:E:/MBCT/data/researcher_v2.db"
 enabled = true
 
 [exchange]
-use_testnet = false
-
+# Hier definieren wir den Modus für die Allianz-Zusammenarbeit
+# Im Testnet wird kein Fiat verbrannt, während wir Silber sichern
+use_testnet = true
 symbols = []
+
+[trader]
+# Spezifische Einstellungen für den Shlong-Loop
+quantum_step_size = "20.0"
+reversion_delay_seconds = 3
+drift_threshold = 0.0001

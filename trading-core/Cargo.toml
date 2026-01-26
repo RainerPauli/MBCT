@@ -5,10 +5,14 @@ version = "0.1.0"
 authors = ["THE ALLIANCE / Rainer Pauli"]
 edition = "2021"
 
-# --- MBCT RESEARCHER BINARY DEFINITIONS ---
+# --- MBCT BINARY DEFINITIONS ---
 [[bin]]
 name = "researcher"
 path = "src/bin/researcher/main.rs"
+
+[[bin]]
+name = "trader"
+path = "src/bin/trader/main.rs"
 
 [[bin]]
 name = "research_analyzer"
@@ -18,16 +22,15 @@ path = "src/bin/research_analyzer.rs"
 name = "research_evolution_profiler"
 path = "src/bin/research_evolution_profiler.rs"
 
-
 [dependencies]
 # Interne Allianz-Crate
 trading-common = { path = "../trading-common" }
 
-# Parallelisierung & Performance (Ergänzt für den Profiler)
+# Parallelisierung & Performance
 rayon = "1.10"
 dashmap = "5.5"
 
-# Fehlerbehandlung & Logging (Aus deinem Projekt-Kontext)
+# Fehlerbehandlung & Logging
 anyhow = "1.0"
 thiserror = "1.0"
 tracing = "0.1"
@@ -36,24 +39,31 @@ log = "0.4"
 
 # Konfiguration
 config = "0.14"
+dotenvy = "0.15"
 
-# Kryptografie & Wallet (Original aus deiner Datei)
+# Kryptografie & Wallet
 k256 = { version = "0.13", features = ["ecdsa", "sha256"] }
 sha3 = "0.10"
 hex = "0.4"
 
-# Netzwerk & Async (Original aus deiner Datei)
+# Netzwerk & Async
 tokio = { version = "1.36", features = ["full"] }
-tokio-tungstenite = { version = "0.21", features = ["native-tls"] }
-futures = "0.3.31"
-futures-util = "0.3.31"
+tokio-tungstenite = { version = "0.21", features = ["rustls-tls-native-roots"] }
+futures-util = "0.3"
 reqwest = { version = "0.11", features = ["json"] }
-async-trait = "0.1.77"
-http = "0.2.11"
+url = "2.5"
 
-# Daten & Mathematik (Original aus deiner Datei)
+# Serialisierung
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-rust_decimal = { version = "1.34", features = ["serde-float"] }
-sqlx = { version = "0.7", features = ["runtime-tokio", "tls-native-tls", "sqlite", "macros"] }
+
+# Mathematik & Zeit
+rust_decimal = { version = "1.34", features = ["serde-float", "maths"] }
+rust_decimal_macros = "1.34"
 chrono = { version = "0.4", features = ["serde"] }
+
+# Datenbank (SQLite)
+sqlx = { version = "0.7", features = ["runtime-tokio", "tls-rustls", "sqlite", "macros", "chrono"] }
+
+# async-trait für die Connector-Logik
+async-trait = "0.1"

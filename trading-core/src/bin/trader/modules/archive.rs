@@ -52,15 +52,15 @@ impl Archive {
                 z_entropy_34s REAL,
                 z_pressure_34s REAL,
                 z_nrg_34s REAL
-            )",
-        )
-        .execute(&pool)
-        .await?;
+            )"
+        ).execute(&pool).await?;
 
-        Ok(Self {
-            pool,
-            csv_path: csv_path.to_string(),
-        })
+        Ok(Self { pool, csv_path: csv_path.to_string() })
+    }
+
+    /// Ermöglicht dem ParamManager Zugriff auf den DB-Pool für die Kalibrierung
+    pub fn get_pool(&self) -> &Pool<Sqlite> {
+        &self.pool
     }
 
     pub async fn store_batch(&self, records: Vec<MBCTFullRecord>) -> Result<(), sqlx::Error> {
@@ -119,12 +119,11 @@ impl Archive {
         }
 
         let f_opt = |opt: Option<f64>| {
-            opt.map(|v| format!("{:.8}", v))
-                .unwrap_or_else(|| "".to_string())
+            opt.map(|v| format!("{:.8}", v)).unwrap_or_else(|| "".to_string())
         };
 
         let regime_str = format!("{:?}", record.regime.regime);
-
+        
         writeln!(
             file,
             "{},{},{:.8},{:.4},{:.4},{:.4},{},{:.4},{:.8},{},{},{},{},{},{},{},{},{},{},{},{:.4},{:.4},{:.4},{:.4},{:.4},{:.4}",

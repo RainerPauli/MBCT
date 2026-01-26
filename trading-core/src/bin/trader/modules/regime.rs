@@ -1,16 +1,18 @@
-// E:\MBCT\trading-core\src\bin\researcher\modules\regime.rs
-// THE ALLIANCE - MBCT Regime Modul v2.0
+// E:\MBCT\trading-core\src\bin\trader\modules\regime.rs
+// ====
+// THE ALLIANCE - MBCT Regime Modul v2.2 (Trader-Edition)
 // Fokus: Kybernetische Symmetrie & Z-Score Anomalie-Detektion
+// ====
 
-use crate::modules::physicist::PhysicsState;
+use super::physicist::PhysicsState;
 use serde::{Deserialize, Serialize};
 use std::collections::VecDeque;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub enum MarketRegime {
-    Compression,
-    Oscillatory,
-    Ballistic,
+    Compression, // Energie-Stau (0.4 - 0.6)
+    Oscillatory, // Normales Rauschen
+    Ballistic,   // Ausbruch / Starker Trend
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -31,7 +33,6 @@ impl RegimeClassifier {
         Self { window_size }
     }
 
-    /// Klassifiziert den Marktzustand basierend auf der energetischen Symmetrie
     pub fn classify(&self, history: &VecDeque<PhysicsState>) -> RegimeState {
         if history.len() < self.window_size {
             return RegimeState {
@@ -47,7 +48,6 @@ impl RegimeClassifier {
         let slope = self.calculate_slope(&prices);
         let symmetry = self.calculate_symmetry(&prices);
 
-        // Reversion Speed: Delta der Symmetrie über die letzten 5 Samples (Kinetischer Vektor)
         let reversion = if history.len() > 5 {
             let prev_sym = self.calculate_symmetry(&prices[..prices.len() - 5]);
             symmetry - prev_sym
@@ -55,13 +55,12 @@ impl RegimeClassifier {
             0.0
         };
 
-        // Definition der Regime-Zonen (Allianz-Standard)
         let regime = if symmetry > 0.8 || symmetry < 0.2 {
-            MarketRegime::Ballistic // Einseitiger Energiefluss
+            MarketRegime::Ballistic
         } else if symmetry > 0.4 && symmetry < 0.6 {
-            MarketRegime::Compression // Maximaler Druckaufbau
+            MarketRegime::Compression
         } else {
-            MarketRegime::Oscillatory // Rauschen / Seitwärts
+            MarketRegime::Oscillatory
         };
 
         RegimeState {
@@ -73,8 +72,6 @@ impl RegimeClassifier {
         }
     }
 
-    /// Statistische Überlegenheit: Z-Score Berechnung für physikalische Parameter
-    /// Erlaubt die Identifizierung von 3-Sigma-Events in Echtzeit.
     pub fn calculate_z_score(
         current_val: f64,
         history: &VecDeque<PhysicsState>,
@@ -96,8 +93,7 @@ impl RegimeClassifier {
         let variance = values.iter().map(|&v| (v - mean).powi(2)).sum::<f64>() / (n - 1.0);
         let std_dev = variance.sqrt();
 
-        // Division durch Null Schutz bei "toter" Materie
-        if std_dev < 0.000000001 {
+        if std_dev < 1e-9 {
             0.0
         } else {
             (current_val - mean) / std_dev

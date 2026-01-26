@@ -15,7 +15,9 @@ pub struct MarketDataService {
 
 impl MarketDataService {
     pub fn new(exchange: Arc<dyn Exchange>) -> Self {
-        Self { _exchange: exchange }
+        Self {
+            _exchange: exchange,
+        }
     }
 
     pub async fn start(

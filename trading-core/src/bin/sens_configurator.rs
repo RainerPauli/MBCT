@@ -47,7 +47,7 @@ fn main() -> std::io::Result<()> {
     for asset in top_18 {
         // Logik: Je höher die Speed, desto enger (aggressiver) kann der Trigger sein.
         // Sniper brauchen schnellere Trigger, Tanker brauchen mehr "Raum".
-        
+
         let base_threshold = 1.0 - asset.symmetry_consistency;
         let speed_adjustment = asset.symmetry_speed * 0.5;
 
@@ -56,7 +56,11 @@ fn main() -> std::io::Result<()> {
         // Short Trigger: Spiegelbildlich oder basierend auf Symmetrie-Peak
         let short_t = (0.65 - speed_adjustment).clamp(0.55, 0.8);
 
-        let mode = if asset.symmetry_speed > 0.1 { "SNIPER_FAST" } else { "TANKER_STABLE" };
+        let mode = if asset.symmetry_speed > 0.1 {
+            "SNIPER_FAST"
+        } else {
+            "TANKER_STABLE"
+        };
 
         final_configs.push(SensConfig {
             symbol: asset.symbol.clone(),
@@ -66,7 +70,10 @@ fn main() -> std::io::Result<()> {
             trade_mode: mode.to_string(),
         });
 
-        println!("🎯 {} | Mode: {} | L: {:.3} | S: {:.3}", asset.symbol, mode, long_t, short_t);
+        println!(
+            "🎯 {} | Mode: {} | L: {:.3} | S: {:.3}",
+            asset.symbol, mode, long_t, short_t
+        );
     }
 
     let json = serde_json::to_string_pretty(&final_configs).unwrap();

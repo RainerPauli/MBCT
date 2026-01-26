@@ -33,7 +33,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut global_metrics: HashMap<String, CoinMetrics> = HashMap::new();
     let mut chunk_metrics: HashMap<String, CoinMetrics> = HashMap::new();
-    
+
     let mut line_counter: usize = 0;
     let mut total_counter: usize = 0;
     let start_time = Instant::now();
@@ -41,17 +41,23 @@ fn main() -> Result<(), Box<dyn Error>> {
     for line in lines {
         let line_str = line?;
         let parts: Vec<&str> = line_str.split(',').collect();
-        
-        // CSV Layout laut archive.rs: 
+
+        // CSV Layout laut archive.rs:
         // 0:timestamp, 1:symbol, 2:price, 3:entropy, 4:pressure, 5:nrg, 6:regime, 7:symmetry, 8:slope...
-        if parts.len() < 7 { continue; }
+        if parts.len() < 7 {
+            continue;
+        }
 
         let symbol = parts[1].to_string();
         let entropy: f64 = parts[3].parse().unwrap_or(0.0);
         let pressure: f64 = parts[4].parse().unwrap_or(0.0);
         let nrg: f64 = parts[5].parse().unwrap_or(0.0);
         let regime = parts[6].to_string();
-        let ret_21s: f64 = parts[11].trim_start_matches("Some(").trim_end_matches(')').parse().unwrap_or(0.0);
+        let ret_21s: f64 = parts[11]
+            .trim_start_matches("Some(")
+            .trim_end_matches(')')
+            .parse()
+            .unwrap_or(0.0);
 
         // Update Chunk Data
         let m = chunk_metrics.entry(symbol.clone()).or_default();
@@ -67,8 +73,12 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         // Wenn Chunk voll -> Zwischenbericht
         if line_counter >= CHUNK_SIZE {
-            print_chunk_report(total_counter, &chunk_metrics, start_time.elapsed().as_secs());
-            
+            print_chunk_report(
+                total_counter,
+                &chunk_metrics,
+                start_time.elapsed().as_secs(),
+            );
+
             // Merge in Global & Reset Chunk
             for (sym, metrics) in chunk_metrics.drain() {
                 let g = global_metrics.entry(sym).or_default();
@@ -85,15 +95,28 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 
 fn print_chunk_report(total: usize, metrics: &HashMap<String, CoinMetrics>, elapsed: u64) {
-    println!("\n--- CHUNK REPORT @ {} Mio Lines (Elapsed: {}s) ---", total / 1_000_000, elapsed);
-    println!("{:<10} | {:<8} | {:<10} | {:<10} | {:<10}", "Symbol", "Samples", "Avg Ent", "Avg NRG", "Vola 21s");
-    
+    println!(
+        "\n--- CHUNK REPORT @ {} Mio Lines (Elapsed: {}s) ---",
+        total / 1_000_000,
+        elapsed
+    );
+    println!(
+        "{:<10} | {:<8} | {:<10} | {:<10} | {:<10}",
+        "Symbol", "Samples", "Avg Ent", "Avg NRG", "Vola 21s"
+    );
+
     // Zeige Top 5 Assets dieses Chunks (sortiert nach Aktivität)
     let mut sorted: Vec<_> = metrics.iter().collect();
     sorted.sort_by(|a, b| b.1.count.cmp(&a.1.count));
 
     for (sym, m) in sorted.iter().take(8) {
-        println!("{:<10} | {:<8} | {:>10.4} | {:>10.4} | {:>10.6}", 
-            sym, m.count, m.sum_entropy / m.count as f64, m.sum_nrg / m.count as f64, m.sum_abs_ret / m.count as f64);
+        println!(
+            "{:<10} | {:<8} | {:>10.4} | {:>10.4} | {:>10.6}",
+            sym,
+            m.count,
+            m.sum_entropy / m.count as f64,
+            m.sum_nrg / m.count as f64,
+            m.sum_abs_ret / m.count as f64
+        );
     }
 }

@@ -2,11 +2,11 @@
 // THE ALLIANCE - Clean Stream Profiler v2.0 "SHARPENED KINETICS"
 // Fokus: Confidence-Scores, Time-to-Symmetry & Thermodynamische Schärfe
 
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Write};
 use std::time::Instant;
-use serde::{Serialize, Deserialize};
 
 const CSV_PATH: &str = "e:/mbct/data/researcher.csv";
 const OUTPUT_PATH: &str = "e:/mbct/data/mee_active_universe_new.json";
@@ -25,8 +25,8 @@ pub struct DeepCoinProfile {
     pub vola_89s: f64,
     pub sample_count: usize,
     pub reliability: f64,
-    pub confidence_score: f64,      // 0.0 - 1.0 (Die finale Allianz-Metrik)
-    pub symmetry_speed: f64,        // "Time-to-Symmetry" Faktor
+    pub confidence_score: f64, // 0.0 - 1.0 (Die finale Allianz-Metrik)
+    pub symmetry_speed: f64,   // "Time-to-Symmetry" Faktor
 }
 
 /// Der "Alliance-Parser": Entfernt Quotes, wandelt Komma zu Punkt
@@ -57,13 +57,17 @@ fn main() -> std::io::Result<()> {
     for line in lines {
         let line = line?;
         let p: Vec<&str> = line.split(',').collect();
-        if p.len() < 14 { continue; }
+        if p.len() < 14 {
+            continue;
+        }
 
         let symbol = p[1].to_string();
-        let entry = global_profiles.entry(symbol.clone()).or_insert(DeepCoinProfile {
-            symbol,
-            ..Default::default()
-        });
+        let entry = global_profiles
+            .entry(symbol.clone())
+            .or_insert(DeepCoinProfile {
+                symbol,
+                ..Default::default()
+            });
 
         // Datenextraktion
         let entropy = alliance_parse(p[3]);
@@ -78,7 +82,7 @@ fn main() -> std::io::Result<()> {
         entry.avg_pressure += pressure;
         entry.avg_nrg += nrg;
         entry.symmetry_consistency += symmetry;
-        
+
         // TTS-Logik: Korrelation von Vola zu Symmetrie
         // Ein Asset ist "schnell", wenn Symmetrie hoch bleibt trotz hoher Vola
         if v3 > 0.0 {
@@ -88,17 +92,24 @@ fn main() -> std::io::Result<()> {
         entry.vola_3s += v3;
         entry.vola_21s += v21;
         entry.vola_89s += v89;
-        
+
         entry.sample_count += 1;
         total_lines += 1;
 
         if total_lines % 5_000_000 == 0 {
-            println!("⏳ Fortschritt: {} Mio. Zeilen | Aktuell: {}", total_lines / 1_000_000, p[1]);
+            println!(
+                "⏳ Fortschritt: {} Mio. Zeilen | Aktuell: {}",
+                total_lines / 1_000_000,
+                p[1]
+            );
         }
     }
 
-    println!("✅ Scan abgeschlossen. Berechne Allianz-Confidence für {} Assets...", global_profiles.len());
-    
+    println!(
+        "✅ Scan abgeschlossen. Berechne Allianz-Confidence für {} Assets...",
+        global_profiles.len()
+    );
+
     let mut results: Vec<DeepCoinProfile> = global_profiles.into_values().collect();
 
     for p in results.iter_mut() {
@@ -112,25 +123,28 @@ fn main() -> std::io::Result<()> {
             p.vola_3s /= n;
             p.vola_21s /= n;
             p.vola_89s /= n;
-            
+
             p.thermal_efficiency = if p.avg_nrg.abs() > 0.000001 {
                 p.avg_pressure / p.avg_nrg
-            } else { 0.0 };
+            } else {
+                0.0
+            };
 
             // --- ALLIANCE CONFIDENCE FORMULA ---
             // 1. Basis: Symmetrie (Wie oft ist das Signal wahr?)
             let base_rel = p.symmetry_consistency;
-            
+
             // 2. Kinetik: Symmetry Speed (Wie schnell kehrt Ruhe ein?)
             let speed_factor = (p.symmetry_speed * 2.0).min(1.0);
-            
+
             // 3. Thermische Arbeit (Leistet das Asset Widerstand?)
             let work_factor = (p.thermal_efficiency.abs() * 0.5).min(0.2);
-            
+
             // 4. Stabilitäts-Check (Entropie-Bremse)
             let entropy_penalty = if p.avg_entropy > 3.5 { 0.1 } else { 0.0 };
 
-            p.confidence_score = (base_rel * 0.6) + (speed_factor * 0.3) + work_factor - entropy_penalty;
+            p.confidence_score =
+                (base_rel * 0.6) + (speed_factor * 0.3) + work_factor - entropy_penalty;
             p.reliability = p.confidence_score; // Update für den Report
         }
     }

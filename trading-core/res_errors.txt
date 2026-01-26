@@ -1,0 +1,581 @@
+cargo :     Checking 
+trading-core v0.1.0 
+(E:\MBCT\trading-core)
+In Zeile:1 Zeichen:1
++ cargo check --bin 
+research_engine 2>&1 
+| Out-File -FilePath 
+res_error ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (    Checki   
+ ng tr...T\trading    
+-core):String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+error[E0599]: no 
+method named `len` 
+found for struct 
+`L2Levels` in the 
+current scope
+  --> trading-core\src
+\bin\research_engine.r
+s:50:24
+   |
+50 |     if 
+snapshot.levels.len() 
+< 2 {
+   |                  
+      ^^^ method not 
+found in `L2Levels`
+   |
+help: some of the 
+expressions' fields 
+have a method of the 
+same name
+   |
+50 |     if snapshot.l
+evels.asks.len() < 2 {
+   |                  
+      +++++
+50 |     if snapshot.l
+evels.bids.len() < 2 {
+   |                  
+      +++++
+
+error[E0608]: cannot 
+index into a value of 
+type `L2Levels`
+  --> trading-core\src
+\bin\research_engine.r
+s:58:34
+   |
+58 |     for level in 
+&snapshot.levels[0] {
+   |                  
+                ^^^
+
+error[E0608]: cannot 
+index into a value of 
+type `L2Levels`
+  --> trading-core\src
+\bin\research_engine.r
+s:65:34
+   |
+65 |     for level in 
+&snapshot.levels[1] {
+   |                  
+                ^^^
+
+error[E0277]: 
+`&L2Levels` is not an 
+iterator
+  --> trading-core\src
+\bin\research_engine.r
+s:80:22
+   |
+80 |     for 
+level_vec in 
+&snapshot.levels {
+   |                  
+    ^^^^^^^^^^^^^^^^ 
+`&L2Levels` is not an 
+iterator
+   |
+   = help: the trait 
+`Iterator` is not 
+implemented for 
+`&L2Levels`
+   = note: required 
+for `&L2Levels` to 
+implement 
+`IntoIterator`
+
+error[E0599]: no 
+method named `len` 
+found for struct 
+`L2Levels` in the 
+current scope
+  --> trading-core\src
+\bin\research_engine.r
+s:91:24
+   |
+91 |     if 
+snapshot.levels.len() 
+< 2 {
+   |                  
+      ^^^ method not 
+found in `L2Levels`
+   |
+help: some of the 
+expressions' fields 
+have a method of the 
+same name
+   |
+91 |     if snapshot.l
+evels.asks.len() < 2 {
+   |                  
+      +++++
+91 |     if snapshot.l
+evels.bids.len() < 2 {
+   |                  
+      +++++
+
+error[E0608]: cannot 
+index into a value of 
+type `L2Levels`
+  --> trading-core\src
+\bin\research_engine.r
+s:98:34
+   |
+98 |     for level in 
+&snapshot.levels[0] {
+   |                  
+                ^^^
+
+error[E0608]: cannot 
+index into a value of 
+type `L2Levels`
+   --> trading-core\sr
+c\bin\research_engine.
+rs:104:34
+    |
+104 |     for level 
+in 
+&snapshot.levels[1] {
+    |                 
+                 ^^^
+
+error[E0599]: no 
+method named `len` 
+found for struct 
+`L2Levels` in the 
+current scope
+   --> trading-core\sr
+c\bin\research_engine.
+rs:121:24
+    |
+121 |     if 
+snapshot.levels.len() 
+>= 2 {
+    |                 
+       ^^^ method not 
+found in `L2Levels`
+    |
+help: some of the 
+expressions' fields 
+have a method of the 
+same name
+    |
+121 |     if snapshot.
+levels.asks.len() >= 
+2 {
+    |                 
+       +++++
+121 |     if snapshot.
+levels.bids.len() >= 
+2 {
+    |                 
+       +++++
+
+error[E0608]: cannot 
+index into a value of 
+type `L2Levels`
+   --> trading-core\sr
+c\bin\research_engine.
+rs:122:38
+    |
+122 |         for 
+level in 
+&snapshot.levels[0] {
+    |                 
+                     
+^^^
+
+error[E0608]: cannot 
+index into a value of 
+type `L2Levels`
+   --> trading-core\sr
+c\bin\research_engine.
+rs:127:38
+    |
+127 |         for 
+level in 
+&snapshot.levels[1] {
+    |                 
+                     
+^^^
+
+error[E0308]: 
+mismatched types
+   --> trading-core\sr
+c\bin\research_engine.
+rs:784:38
+    |
+784 |                 
+        history.push(s
+tate.clone());
+    |                 
+                ---- 
+^^^^^^^^^^^^^ 
+expected `trading_comm
+on::data::types::Marke
+tState`, found `tradin
+g_core::exchange::Mark
+etState`
+    |                 
+                |
+    |                 
+                
+arguments to this 
+method are incorrect
+    |
+    = note: `trading_c
+ore::exchange::MarketS
+tate` and `trading_com
+mon::data::types::Mark
+etState` have similar 
+names, but are 
+actually distinct 
+types
+note: `trading_core::e
+xchange::MarketState` 
+is defined in crate 
+`trading_core`
+   --> E:\MBCT\trading
+-core\src\exchange\typ
+es.rs:31:1
+    |
+31  | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: `trading_common:
+:data::types::MarketSt
+ate` is defined in 
+crate `trading_common`
+   --> E:\MBCT\trading
+-common\src\data\types
+.rs:418:1
+    |
+418 | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: method defined 
+here
+   --> /rustc/17067e9a
+c6d7ecb70e50f92c1944e5
+45188d2359\library\all
+oc\src\vec\mod.rs:2442
+:12
+
+error[E0308]: 
+mismatched types
+   --> trading-core\sr
+c\bin\research_engine.
+rs:790:56
+    |
+790 |                 
+        let regime = d
+etector.classify(&stat
+e, &history);
+    |                 
+                      
+        -------- 
+^^^^^^ expected `tradi
+ng_common::data::types
+::MarketState`, found 
+`trading_core::exchang
+e::MarketState`
+    |                 
+                      
+        |
+    |                 
+                      
+        arguments to 
+this method are 
+incorrect
+    |
+    = note: `trading_c
+ore::exchange::MarketS
+tate` and `trading_com
+mon::data::types::Mark
+etState` have similar 
+names, but are 
+actually distinct 
+types
+note: `trading_core::e
+xchange::MarketState` 
+is defined in crate 
+`trading_core`
+   --> E:\MBCT\trading
+-core\src\exchange\typ
+es.rs:31:1
+    |
+31  | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: `trading_common:
+:data::types::MarketSt
+ate` is defined in 
+crate `trading_common`
+   --> E:\MBCT\trading
+-common\src\data\types
+.rs:418:1
+    |
+418 | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: method defined 
+here
+   --> E:\MBCT\trading
+-core\src\exchange\env
+elope_detection.rs:41:
+12
+    |
+41  |     pub fn 
+classify(&self, 
+state: &MarketState, 
+history: 
+&[MarketState]) -> 
+MarketRegime {
+    |            
+^^^^^^^^
+
+error[E0609]: no 
+field `regime` on 
+type `trading_core::ex
+change::MarketState`
+   --> trading-core\sr
+c\bin\research_engine.
+rs:792:43
+    |
+792 |                 
+        state_with_reg
+ime.regime = Some(regi
+me.as_str().to_string(
+));
+    |                 
+                      
+    ^^^^^^ unknown 
+field
+    |
+    = note: available 
+fields are: `symbol`, 
+`temperature`, 
+`pressure`, 
+`volume_spread`, 
+`entropy`
+
+error[E0308]: 
+mismatched types
+   --> trading-core\sr
+c\bin\research_engine.
+rs:794:49
+    |
+794 |                 
+        match physicis
+t.analyze(&state_with_
+regime, &history, 
+&l2_snapshot) {
+    |                 
+                      
+  ------- 
+^^^^^^^^^^^^^^^^^^ 
+expected `trading_comm
+on::data::types::Marke
+tState`, found `tradin
+g_core::exchange::Mark
+etState`
+    |                 
+                      
+  |
+    |                 
+                      
+  arguments to this 
+method are incorrect
+    |
+    = note: `trading_c
+ore::exchange::MarketS
+tate` and `trading_com
+mon::data::types::Mark
+etState` have similar 
+names, but are 
+actually distinct 
+types
+note: `trading_core::e
+xchange::MarketState` 
+is defined in crate 
+`trading_core`
+   --> E:\MBCT\trading
+-core\src\exchange\typ
+es.rs:31:1
+    |
+31  | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: `trading_common:
+:data::types::MarketSt
+ate` is defined in 
+crate `trading_common`
+   --> E:\MBCT\trading
+-common\src\data\types
+.rs:418:1
+    |
+418 | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: method defined 
+here
+   --> trading-core\sr
+c\bin\research_engine.
+rs:526:8
+    |
+526 |     fn analyze(
+    |        ^^^^^^^
+527 |         &self,
+528 |         state: 
+&MarketState,
+    |         
+-------------------
+
+error[E0308]: 
+mismatched types
+   --> trading-core\sr
+c\bin\research_engine.
+rs:799:37
+    |
+798 | ...             
+      let 
+validation_record = 
+ValidationRecord::new(
+    |                 
+                      
+        
+--------------------- 
+arguments to this 
+function are incorrect
+799 | ...             
+          
+&state_with_regime,
+    |                 
+          
+^^^^^^^^^^^^^^^^^^ 
+expected `trading_comm
+on::data::types::Marke
+tState`, found `tradin
+g_core::exchange::Mark
+etState`
+    |
+    = note: `trading_c
+ore::exchange::MarketS
+tate` and `trading_com
+mon::data::types::Mark
+etState` have similar 
+names, but are 
+actually distinct 
+types
+note: `trading_core::e
+xchange::MarketState` 
+is defined in crate 
+`trading_core`
+   --> E:\MBCT\trading
+-core\src\exchange\typ
+es.rs:31:1
+    |
+31  | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: `trading_common:
+:data::types::MarketSt
+ate` is defined in 
+crate `trading_common`
+   --> E:\MBCT\trading
+-common\src\data\types
+.rs:418:1
+    |
+418 | pub struct 
+MarketState {
+    | 
+^^^^^^^^^^^^^^^^^^^^^^
+note: associated 
+function defined here
+   --> trading-core\sr
+c\bin\research_engine.
+rs:177:8
+    |
+177 |     fn new(
+    |        ^^^
+178 |         state: 
+&MarketState,
+    |         
+-------------------
+
+error[E0061]: this 
+function takes 1 
+argument but 0 
+arguments were 
+supplied
+   --> trading-core\sr
+c\bin\research_engine.
+rs:843:35
+    |
+843 | ...             
+      match Hyperliqui
+dWs::new().await {
+    |                 
+            
+^^^^^^^^^^^^^^^^^^-- 
+argument #1 of type 
+`bool` is missing
+    |
+note: associated 
+function defined here
+   --> E:\MBCT\trading
+-core\src\exchange\ws.
+rs:24:18
+    |
+24  |     pub async 
+fn new(is_testnet: 
+bool) -> Result<Self> 
+{
+    |                 
+ ^^^
+help: provide the 
+argument
+    |
+843 |                 
+            match 
+HyperliquidWs::new(/* 
+bool */).await {
+    |                 
+                      
+               
+++++++++++
+
+Some errors have 
+detailed 
+explanations: E0061, 
+E0277, E0308, E0599, 
+E0608, E0609.
+For more information 
+about an error, try 
+`rustc --explain 
+E0061`.
+error: could not 
+compile 
+`trading-core` (bin 
+"research_engine") 
+due to 16 previous 
+errors

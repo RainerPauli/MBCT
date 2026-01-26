@@ -2,11 +2,11 @@
 // THE ALLIANCE - MBCT Configuration Engine
 // Fokus: Vollständigkeit, BOM-Filtering & Kinetische Integration
 
+use crate::universe::KineticUniverse;
 use config::{Config, ConfigError, File};
 use serde::Deserialize;
 use std::fs;
 use std::path::Path;
-use crate::universe::KineticUniverse;
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct Database {
@@ -70,14 +70,17 @@ impl Settings {
             .build()?;
 
         let mut settings: Settings = s.try_deserialize()?;
-        
+
         // --- MBCT PHYSIK-FILTER INTEGRATION ---
         // Wir laden die JSON, um die kinetisch wertvollsten Assets zu identifizieren
         let json_path = "E:/MBCT/data/profiles_evolution_v4.json";
         let kinetic_symbols = KineticUniverse::get_active_symbols(json_path);
-        
+
         if !kinetic_symbols.is_empty() {
-            println!("🎯 THE ALLIANCE: {} kinetische Carrier (JSON) priorisiert.", kinetic_symbols.len());
+            println!(
+                "🎯 THE ALLIANCE: {} kinetische Carrier (JSON) priorisiert.",
+                kinetic_symbols.len()
+            );
             settings.symbols = kinetic_symbols;
         } else {
             // FALLBACK: Wenn JSON fehlt, nutze die hl_assets.txt
@@ -85,27 +88,34 @@ impl Settings {
             let asset_path = "E:/MBCT/data/static/hl_assets.txt";
             match Self::load_symbols_from_file(asset_path) {
                 Ok(dynamic_symbols) if !dynamic_symbols.is_empty() => {
-                    println!("✅ THE ALLIANCE: {} Symbole aus hl_assets.txt geladen.", dynamic_symbols.len());
+                    println!(
+                        "✅ THE ALLIANCE: {} Symbole aus hl_assets.txt geladen.",
+                        dynamic_symbols.len()
+                    );
                     settings.symbols = dynamic_symbols;
-                },
+                }
                 Ok(_) => println!("⚠️ hl_assets.txt ist leer."),
                 Err(e) => println!("⚠️ Ladefehler hl_assets: {}", e),
             }
         }
-        
+
         Ok(settings)
     }
 
     /// Lädt Symbole aus einer Textdatei und entfernt BOM/Whitespace
     pub fn load_symbols_from_file<P: AsRef<Path>>(path: P) -> Result<Vec<String>, std::io::Error> {
         if !path.as_ref().exists() {
-            return Err(std::io::Error::new(std::io::ErrorKind::NotFound, "Datei fehlt"));
+            return Err(std::io::Error::new(
+                std::io::ErrorKind::NotFound,
+                "Datei fehlt",
+            ));
         }
-        
+
         let bytes = fs::read(path)?;
         let content = String::from_utf8_lossy(&bytes);
-        
-        let symbols: Vec<String> = content.lines()
+
+        let symbols: Vec<String> = content
+            .lines()
             .map(|line| {
                 // Filtert das BOM (\u{feff}) und Whitespace
                 line.trim().trim_start_matches('\u{feff}').to_string()

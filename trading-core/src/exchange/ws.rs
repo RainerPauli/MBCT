@@ -1,17 +1,24 @@
-// File: src/exchange/hyperliquid/ws.rs
-use futures_util::{StreamExt, SinkExt};
-use tokio_tungstenite::{connect_async, tungstenite::Message};
+// E:\MBCT\trading-core\src\exchange\ws.rs
+// ====
+// Hyperliquid WebSocket Connector - ALLIANZ RESILIENT EDITION v4.2
+// One-Shot Pattern: Collector handles reconnection.
+// ====
 
+use crate::exchange::types::L2Snapshot;
+use anyhow::{anyhow, Result};
+use futures_util::{SinkExt, StreamExt};
 use serde_json::json;
 use tokio::sync::mpsc;
-use crate::exchange::types::L2Snapshot;
-use crate::exchange::connector::Trade;
+use tokio_tungstenite::{connect_async, tungstenite::Message};
+
+#[derive(Debug, serde::Deserialize)]
+struct WSResponse {
+    data: Option<L2Snapshot>,
+}
 
 #[derive(Debug)]
-#[allow(dead_code)]
 pub enum HLEvent {
     Snapshot(L2Snapshot),
-    Trade(Trade),
 }
 
 pub struct HyperliquidWs {
@@ -20,100 +27,87 @@ pub struct HyperliquidWs {
 }
 
 impl HyperliquidWs {
-    pub async fn new() -> Result<Self, crate::exchange::errors::ExchangeError> {
+    pub async fn new(is_testnet: bool) -> Result<Self> {
         let (tx, rx) = mpsc::unbounded_channel();
         let (sub_tx, mut sub_rx) = mpsc::unbounded_channel::<String>();
-        let is_testnet = false; 
-        
-        let url = if is_testnet { 
-            "wss://api.hyperliquid-testnet.xyz/ws".to_string() 
-        } else { 
-            "wss://api.hyperliquid.xyz/ws".to_string() 
-        };
 
+        let url = if is_testnet {
+            "wss://api.hyperliquid-testnet.xyz/ws"
+        } else {
+            "wss://api.hyperliquid.xyz/ws"
+        }
+        .to_string();
+
+        let (ws_stream, _) = connect_async(&url).await.map_err(|e| anyhow!("Connect failed: {}", e))?;
+        println!("✅ WS: Verbindung zur Allianz-Zentrale steht.");
+        
+        let (mut write, mut read) = ws_stream.split();
         let event_tx = tx.clone();
-        let ws_url = url.clone();
 
         tokio::spawn(async move {
-            let mut active_subs = std::collections::HashSet::new();
-            
             loop {
-                match connect_async(&ws_url).await {
-                    Ok((ws_stream, _)) => {
-                        println!("✅ Connected to HyperLiquid WS");
-                        let (mut write, mut read) = ws_stream.split();
-
-                        // Re-subscribe to existing symbols on reconnect
-                        for symbol in &active_subs {
-                            let sub_msg = json!({
-                                "method": "subscribe",
-                                "subscription": { "type": "l2Book", "coin": symbol }
-                            });
-                            let _ = write.send(Message::Text(sub_msg.to_string())).await;
-                            tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
-                        }
-
-                        loop {
-                            tokio::select! {
-                                Some(symbol) = sub_rx.recv() => {
-                                    if active_subs.insert(symbol.clone()) {
-                                        let sub_msg = json!({
-                                            "method": "subscribe",
-                                            "subscription": { "type": "l2Book", "coin": symbol }
-                                        });
-                                        println!("📡 Subscribing to: {}", symbol);
-                                        let _ = write.send(Message::Text(sub_msg.to_string())).await;
-                                        tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
-                                    }
+                tokio::select! {
+                    // Subscriptions from Collector
+                    res = sub_rx.recv() => {
+                        match res {
+                            Some(symbol) => {
+                                let sub_msg = json!({
+                                    "method": "subscribe",
+                                    "subscription": { "type": "l2Book", "coin": symbol }
+                                });
+                                if let Err(_) = write.send(Message::Text(sub_msg.to_string())).await {
+                                    break;
                                 }
-                                Some(msg) = read.next() => {
-                                    match msg {
-                                        Ok(Message::Text(text)) => {
-                                            if let Ok(parsed) = serde_json::from_str::<serde_json::Value>(&text) {
-                                                if let Some(channel) = parsed.get("channel") {
-                                                    if channel.as_str() == Some("l2Book") {
-                                                        if let Some(data) = parsed.get("data") {
-                                                            if let Ok(snapshot) = serde_json::from_value::<L2Snapshot>(data.clone()) {
-                                                                let _ = event_tx.send(HLEvent::Snapshot(snapshot));
-                                                            }
-                                                        }
-                                                    } else if channel.as_str() == Some("error") {
-                                                        println!("❌ HL WS Server Error: {}", text);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        Err(e) => { println!("❌ HL WS Error: {}", e); break; }
-                                        _ => {}
+                            }
+                            None => break, // sub_tx was dropped
+                        }
+                    }
+                    
+                    // Incoming Messages
+                    msg_res = read.next() => {
+                        match msg_res {
+                            Some(Ok(Message::Text(text))) => {
+                                if let Ok(resp) = serde_json::from_str::<WSResponse>(&text) {
+                                    if let Some(snapshot) = resp.data {
+                                        let _ = event_tx.send(HLEvent::Snapshot(snapshot));
                                     }
                                 }
                             }
+                            Some(Ok(Message::Binary(bin))) => {
+                                if let Ok(resp) = serde_json::from_slice::<WSResponse>(&bin) {
+                                    if let Some(snapshot) = resp.data {
+                                        let _ = event_tx.send(HLEvent::Snapshot(snapshot));
+                                    }
+                                }
+                            }
+                            Some(Ok(Message::Ping(payload))) => {
+                                // Server -> Client Ping: Respond with Pong
+                                let _ = write.send(Message::Pong(payload)).await;
+                            }
+                            Some(Ok(Message::Close(_))) | Some(Err(_)) | None => {
+                                break;
+                            }
+                            _ => {}
                         }
-                    }
-                    Err(e) => {
-                        println!("❌ HL Connection Failed: {}. Retry in 5s...", e);
-                        tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
                     }
                 }
             }
+            println!("ℹ️ WS-Task beendet.");
         });
 
-        Ok(Self {
-            rx,
-            sub_tx,
-        })
+        Ok(Self { rx, sub_tx })
     }
 
-    pub async fn subscribe_l2(&self, symbol: &str) -> Result<(), crate::exchange::errors::ExchangeError> {
-        self.sub_tx.send(symbol.to_string()).map_err(|_| {
-            crate::exchange::errors::ExchangeError::NetworkError("Failed to send subscription request".into())
-        })
+    pub async fn subscribe_l2(&self, symbol: &str) -> Result<()> {
+        self.sub_tx
+            .send(symbol.to_string())
+            .map_err(|e| anyhow!("Sub-Error: {}", e))
     }
 
     pub async fn next_snapshot(&mut self) -> Option<L2Snapshot> {
         while let Some(event) = self.rx.recv().await {
-            if let HLEvent::Snapshot(s) = event {
-                return Some(s);
+            match event {
+                HLEvent::Snapshot(s) => return Some(s),
             }
         }
         None
